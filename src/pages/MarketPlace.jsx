@@ -2,7 +2,7 @@ function MarketPlace() {
 
     return (
         <>
-            <h1>MarketPlace</h1>
+            <h1>MarketPlace Page</h1>
         </>
     )
 }
