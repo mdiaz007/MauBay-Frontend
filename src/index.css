@@ -1,5 +1,44 @@
+:root{
+    background-color: #4A4A4A;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
 .navigation{
-    background-color: lightgrey;
+    background-color: #65A062;
     display: flex;
     flex-direction: column;
+    display: flex;
+    flex-direction: row;
+}
+
+.marketplace{
+    border: grey solid 10px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.marketplacedelete{
+    text-align: center;
+}
+
+.card{
+    background-color: #F3FFAC;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 15px;
+    align-items: center;
+}
+
+.cardtitle{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.filters, .cartcomponent{
+    color: #000000;
+    text-align: center;
+    background-color: #FFFFFF;
 }
