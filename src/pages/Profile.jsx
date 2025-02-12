@@ -1,8 +1,14 @@
+import Card from '../components/Card'
+
 function Profile() {
 
     return (
         <>
-            <h1>Profile Page</h1>
+            <div className="profile">
+                <Card name="Settings" />
+                <h1>Analytics</h1>
+                <Card name="Wishlist" />
+            </div>
         </>
     )
 }

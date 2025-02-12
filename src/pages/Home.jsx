@@ -1,8 +1,15 @@
+import SearchBar from '../components/SearchBar'
+
 function Home() {
 
     return (
         <>
-            <h1>Home Pages</h1>
+            <div className="homepage">
+                <SearchBar />
+                <div className="items">
+                    <span>PLACEHOLDER</span>
+                </div>
+            </div>
         </>
     )
 }

@@ -13,7 +13,9 @@ function Card(props) {
                 <div className="card">
                     <span className="cardtitle">{component_name}</span>
                     <Filters />
-                    <span className="cardtitle">End {component_name}</span>
+                    <span className="filterbutton">Apply</span>
+                    <span className="cardtitle">Filters Applied: ?</span>
+
                 </div>
             </>
         )
@@ -23,17 +25,38 @@ function Card(props) {
                 <div className="card">
                     <span className="cardtitle">Cart</span>
                     <CartComponent />
-                    <span className="cardtitle">End Cart</span>
+                    <span className="cartbutton">Checkout</span>
+                    <span className="cardtitle">Total: $?</span>
                 </div>
             </>
         )
-    }else{
+    }else if (component_name == "Settings") {
         return (
             <>
                 <div className="card">
                     <span className="cardtitle">{component_name}</span>
-                    <h1>ERROR</h1>
-                    <span className="cardtitle">End Filters</span>
+                    <span className="cartbutton">Placeholder</span>
+                    <span className="cardtitle">End Card</span>
+                </div>
+            </>
+        )
+    }else if (component_name == "Wishlist") {
+        return (
+            <>
+                <div className="card">
+                    <span className="cardtitle">{component_name}</span>
+                    <span className="cartbutton">Placeholder</span>
+                    <span className="cardtitle">Go ➡️</span>
+                </div>
+            </>
+        )
+    } else{
+        return (
+            <>
+                <div className="card">
+                    <span className="cardtitle">{component_name}</span>
+                    <span className="cartbutton">Placeholder</span>
+                    <span className="cardtitle">End Card</span>
                 </div>
             </>
         )

@@ -1,12 +1,20 @@
+
 function Navigation() {
 
   return (
     <>
       <div className="navigation">
-          <a href="/">Home</a>
-          <a href="/marketplace">Marketplace</a>
-          <a href="/cart">Cart</a>
-          <a href="/profile">Profile</a>
+        <div className="navigation_left">
+          <a href="/" className="navigation_home">Home</a>
+          <a href="/marketplace" className="navigation_marketplace">Marketplace</a>
+        </div>
+        <div className="navigation_center">
+          <img src="src/assets/logo.png" alt="maubay"/>
+        </div>
+        <div className="navigation_right">
+          <a href="/cart" className="navigation_cart">Cart</a>
+          <a href="/profile" className="navigation_profile">Profile</a>
+        </div>          
       </div>
     </>
   )

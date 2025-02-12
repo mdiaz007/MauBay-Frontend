@@ -1,8 +1,14 @@
+import Card from "../components/Card"
+
 function Cart() {
 
     return (
         <>
-            <h1>Cart Page</h1>
+            <div className="cart">
+                <Card name="CartComponent" />
+                <h1>Cart</h1>
+                <Card name="Order Details" />
+            </div>
         </>
     )
 }
