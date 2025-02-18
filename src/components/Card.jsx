@@ -4,6 +4,9 @@ import CartComponent from "./CartComponent"
 function Card(props) {
 
     const component_name = props.name
+    const component_price = "$" + props.price
+    const component_item = props.item
+    const component_image = props.imageURL
 
     /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
 
@@ -47,6 +50,19 @@ function Card(props) {
                     <span className="cardtitle">{component_name}</span>
                     <span className="cartbutton">Placeholder</span>
                     <span className="cardtitle">Go ➡️</span>
+                </div>
+            </>
+        )
+    } else if (component_name == "ShoppingCard") {
+        return (
+            <>
+                <div className="shoppingcard">
+                    <span className="cardtitle">{component_item}</span>
+                    <div className="shoppingcardimage">
+                        <img className="shoppingcardimg" src={"src/assets/" + component_image} alt={component_item}></img>
+                    </div>
+                    <span className="cartbutton2">Add to cart</span>
+                    <span className="cardtitle">{component_price}</span>
                 </div>
             </>
         )
