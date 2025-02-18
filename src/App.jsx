@@ -9,6 +9,13 @@ import Login_Signup from './pages/Login_Signup'
 
 import { Route, Routes } from 'react-router-dom'
 
+import SuperTokens, { SuperTokensWrapper } from "supertokens-auth-react";
+import { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react/ui";
+import { EmailPasswordPreBuiltUI } from 'supertokens-auth-react/recipe/emailpassword/prebuiltui';
+import * as reactRouterDom from "react-router-dom";
+
+
+
 function App() {
 
   return (
@@ -18,8 +25,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/marketplace" element={<MarketPlace />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/login_signup" element={<Login_Signup />} />
+          {/* <Route path="/login_signups" element={<Login_Signup />} /> */}
           {/* <Route path="/profile" element={<Profile />} /> */}
+
+          {/*This renders the login UI on the /auth route*/}
+          {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
+          {/*Your app routes*/}
+
         </Routes>
         {/* <Footer /> */}
     </>

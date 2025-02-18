@@ -13,7 +13,7 @@ function Navigation() {
         </div>
         <div className="navigation_right">
           <a href="/cart" className="navigation_cart">Cart</a>
-          <a href="/login_signup" className="navigation_login_signup">Login/Sign Up</a>
+          <a href="/auth" className="navigation_login_signup">Login/Sign Up</a>
           {/* <a href="/profile" className="navigation_profile">Profile</a> */}
         </div>          
       </div>
