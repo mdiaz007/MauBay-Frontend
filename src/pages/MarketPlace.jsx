@@ -18,8 +18,6 @@ function MarketPlace() {
                         <Card name="ShoppingCard" item="Pagani Zonda" price="6,500,000" imageURL="ZONDA.jpg" />
                         <Card name="ShoppingCard" item="BMW M3" price="60,000" imageURL="BMW_M3.jpg" />
                         <Card name="ShoppingCard" item="Jordan 1 Bred" price="1,000" imageURL="JORDAN1_BRED.jpg" />
-
-
                 </div>
             </div>
                 <Card name="CartComponent" />

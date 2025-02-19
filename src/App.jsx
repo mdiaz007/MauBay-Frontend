@@ -14,8 +14,6 @@ import { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react/ui
 import { EmailPasswordPreBuiltUI } from 'supertokens-auth-react/recipe/emailpassword/prebuiltui';
 import * as reactRouterDom from "react-router-dom";
 
-
-
 function App() {
 
   return (
@@ -31,7 +29,6 @@ function App() {
           {/*This renders the login UI on the /auth route*/}
           {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
           {/*Your app routes*/}
-
         </Routes>
         {/* <Footer /> */}
     </>
