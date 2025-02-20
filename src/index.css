@@ -1,11 +1,8 @@
-*{
+body{
     font-family: "Inter", serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-}
-
-:root{
     background-color: #4A4A4A;
     /* margin-left: 100px;
     margin-right: 100px; */

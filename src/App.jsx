@@ -30,7 +30,7 @@ function App() {
           {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
           {/*Your app routes*/}
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
     </>
   )
 }
