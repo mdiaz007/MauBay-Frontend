@@ -80,12 +80,12 @@ body{
     padding: 5px;
 }
 
-.navigation_home:hover, .navigation_marketplace:hover, .navigation_cart:hover, .navigation_profile:hover{
+.navigation_home:hover, .navigation_marketplace:hover, .navigation_cart:hover, .navigation_profile:hover, a:any-link:hover{
     color: #888888;
     
 }
 
-.navigation_home:link, .navigation_marketplace:link, .navigation_cart:link, .navigation_profile:link{
+.navigation_home:link, .navigation_marketplace:link, .navigation_cart:link, .navigation_profile:link, a:any-link:link{
     text-decoration: none;
     color: black;
 }
