@@ -17,7 +17,14 @@ SuperTokens.init({
     apiBasePath: "/auth",
     websiteBasePath: "/auth",
   },
-  recipeList: [EmailPassword.init(), Session.init()],
+  style: `
+    [data-supertokens~=authPage]{
+      position: absolute;
+      top: 49%;
+      left: 50%;
+      transform: translate3d(-50%,-50%, 0);
+    }`,
+  recipeList: [EmailPassword.init(), Session.init()]
 });
 
 createRoot(document.getElementById('root')).render(
