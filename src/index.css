@@ -1,3 +1,10 @@
+#root, body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
 body{
     font-family: "Inter", serif;
     font-optical-sizing: auto;
@@ -6,8 +13,6 @@ body{
     background-color: #4A4A4A;
     /* margin-left: 100px;
     margin-right: 100px; */
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
     min-width: fit-content;
 }
@@ -18,12 +23,11 @@ body{
     flex-direction: row;
     justify-content:space-evenly;
     align-items: center;
-    min-height: 50px;
+    min-height: 100px;
     min-width:max-content;
     max-width: 100%;
     max-height: 100px;
     margin-bottom: 30px;
-    /* border: red 2px solid; */
 }
 
 .footer {
@@ -32,11 +36,8 @@ body{
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    min-height: 50px;
-    min-width: max-content;
-    max-width: 100%;
-    max-height: 100px;
-    margin-top: 30px;
+    margin-top: auto;
+    /* /* border: 10px red solid; */
 }
 
 .footerdiv{
@@ -141,7 +142,7 @@ body{
     max-width: 250px;
     min-width: 250px;
     min-height: 200px;
-    margin: 15px
+    margin: 15px;
 }
 
 .shoppingcardimage{
