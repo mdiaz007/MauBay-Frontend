@@ -3,6 +3,7 @@ import Navigation from './components/Navigation'
 import Home from './pages/Home'
 import MarketPlace from './pages/MarketPlace'
 import Cart from './pages/Cart'
+import Dashboard from './pages/Dashboard'
 import Footer from './components/Footer'
 
 import { Route, Routes, Router } from 'react-router-dom'
@@ -16,16 +17,17 @@ function App() {
 
   return (
     <SuperTokensWrapper>
-        <Navigation />
+      <Navigation status="Dashboard"/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/marketplace" element={<MarketPlace />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/dashboard" element={<Dashboard />} />
 
           {/*This renders the login UI on the /auth route*/}
           {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
           {/*Your app routes*/}
-
+          
           <Route
             // path="/profile"
             element={

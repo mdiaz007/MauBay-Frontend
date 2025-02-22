@@ -66,6 +66,20 @@ function Card(props) {
                 </div>
             </>
         )
+    } else if (component_name == "DashboardCard") {
+        return (
+            <>
+                <div className="card">
+                    <span className="cardtitle">{component_name}</span>
+                    <span className="cartbutton">Account</span>
+                    <span className="cartbutton">Security</span>
+                    <span className="cartbutton">Messages</span>
+                    <span className="cartbutton">Orders</span>
+                    <span className="cartbutton">Analytics</span>
+                    <span className="cardtitle"></span>
+                </div>
+            </>
+        )
     } else{
         return (
             <>
