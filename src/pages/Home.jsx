@@ -1,7 +1,9 @@
 import SearchBar from '../components/SearchBar'
 import Card from '../components/Card'
 
-function Home() {
+function Home(props) {
+
+    // console.log(props)
 
     return (
         <>
