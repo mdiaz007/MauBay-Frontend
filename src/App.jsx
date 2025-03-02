@@ -20,30 +20,27 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
 
-  const [state, setState] = useState({})
+  const [data, setData] = useState([])
 
   // [] Will only render once
-  // useEffect(() => {
-  //   axios.get('active')
-  //     .then(function (response) {
-  //       setState(response.data)
-  //       // console.log(response.data[0].id)
-  //     })
-  //     .catch(function (error) {
-  //       // console.log(error)
-  //     })
-  //     .finally(function () {
-  //       // console.log("end")
-  //     })
-  // }, [])
- 
-  // console.log(state)
+  useEffect(() => {
+    axios.get('active')
+      .then(function (response){
+        setData(response.data)
+      })
+      .catch(function(error){
+        console.log(error)
+      })
+      .finally(function (){
+
+      })
+  }, [])
 
   return (
     <SuperTokensWrapper>
       <Navigation status="Dashboard"/>
         <Routes>
-          <Route path="/" element={<Home object={state}/>} />
+          <Route path="/" element={<Home data={data}/>} />
           <Route path="/marketplace" element={<MarketPlace />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/dashboard" element={<Dashboard />} />
