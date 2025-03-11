@@ -14,7 +14,7 @@ import { EmailPasswordPreBuiltUI } from 'supertokens-auth-react/recipe/emailpass
 import * as reactRouterDom from "react-router-dom"
 
 import axios from 'axios'
-axios.defaults.baseURL = 'http://127.0.0.1:8000/'
+axios.defaults.baseURL = import.meta.env.VITE_AXIOSBASEURL;
 
 import React, { useEffect, useState } from 'react';
 
@@ -41,7 +41,7 @@ function App() {
       <Navigation status="Dashboard"/>
         <Routes>
           <Route path="/" element={<Home data={data}/>} />
-          <Route path="/marketplace" element={<MarketPlace />} />
+          <Route path="/marketplace" element={<MarketPlace data={data} />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/dashboard" element={<Dashboard />} />
 
