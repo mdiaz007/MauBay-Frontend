@@ -10,10 +10,11 @@ import Session from "supertokens-auth-react/recipe/session"
 
 SuperTokens.init({
   appInfo: {
+    // enableDebugLogs: true,
     // learn more about this on https://supertokens.com/docs/references/app-info
     appName: "maubay",
-    apiDomain: "http://localhost:5173/",
-    websiteDomain: "http://localhost:5173/",
+    apiDomain: import.meta.env.VITE_API_DOMAIN,
+    websiteDomain: import.meta.env.VITE_WEBSITE_DOMAIN,
     apiBasePath: "/auth",
     websiteBasePath: "/auth",
   },
