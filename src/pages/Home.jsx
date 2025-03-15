@@ -1,4 +1,3 @@
-import SearchBar from '../components/SearchBar'
 import Card from '../components/Card'
 
 function Home(props) {
@@ -7,8 +6,8 @@ function Home(props) {
         <>
             <div className="homepage">
 
-                <SearchBar />
-                
+                <h1 className="homepage_categories">Cars | Clothing | Toys | Electronics</h1>
+
                 <div className="homepagemiddle">
                     {/* <Card name="ShoppingCard" item="Pagani Zonda" price="6,500,000" imageURL="ZONDA.jpg" /> */}
 

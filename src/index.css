@@ -267,7 +267,12 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 10px;
+}
+
+.homepage_categories{
+    font-size: 24px;
+    color: white;
 }
 
 .homeplaceholder{
