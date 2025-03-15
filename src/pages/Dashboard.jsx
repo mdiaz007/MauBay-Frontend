@@ -1,9 +1,11 @@
 import Card from '../components/Card'
 
+import { SessionAuth } from "supertokens-auth-react/recipe/session"
+
 function Dashboard() {
 
     return (
-        <>
+        <SessionAuth>
             <div className="dashboard">
                 <h1 className="dashboard_title">Dashboard</h1>
                 <div className="dashboard_center">
@@ -13,7 +15,7 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-        </>
+        </SessionAuth>
     )
 }
 

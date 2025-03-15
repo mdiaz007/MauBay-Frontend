@@ -1,24 +1,19 @@
-import './index.css'
-import Navigation from './components/Navigation'
-import Home from './pages/Home'
-import MarketPlace from './pages/MarketPlace'
-import Cart from './pages/Cart'
-import Dashboard from './pages/Dashboard'
-import Footer from './components/Footer'
-
-import { Route, Routes, Router } from 'react-router-dom'
-
-import SuperTokens, { SuperTokensWrapper, SessionAuth } from "supertokens-auth-react"
 import { getSuperTokensRoutesForReactRouterDom } from "supertokens-auth-react/ui"
 import { EmailPasswordPreBuiltUI } from 'supertokens-auth-react/recipe/emailpassword/prebuiltui'
 import * as reactRouterDom from "react-router-dom"
+import { Route, Routes } from 'react-router-dom'
+
+import React, { useEffect, useState } from 'react';
 
 import axios from 'axios'
 axios.defaults.baseURL = import.meta.env.VITE_AXIOSBASEURL;
 
-import React, { useEffect, useState } from 'react';
+import Home from './pages/Home'
+import MarketPlace from './pages/MarketPlace'
+import Cart from './pages/Cart'
+import Dashboard from './pages/Dashboard'
 
-function App() {
+export default function App() {
 
   const [data, setData] = useState([])
 
@@ -37,32 +32,14 @@ function App() {
   }, [])
 
   return (
-    <SuperTokensWrapper>
-      <Navigation status="Dashboard"/>
-        <Routes>
-          <Route path="/" element={<Home data={data}/>} />
-          <Route path="/marketplace" element={<MarketPlace data={data} />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-
-          {/*This renders the login UI on the /auth route*/}
-          {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
-          {/*Your app routes*/}
-          
-          <Route
-            // path="/profile"
-            element={
-              <SessionAuth>
-                {/*Components that require to be protected by authentication*/}
-                {/* <Profile /> */}
-              </SessionAuth>
-            }
-          />
-
-        </Routes>
-        <Footer />
-      </SuperTokensWrapper>
+    <Routes>
+      <Route path="/" element={<Home data={data}/>} />
+      <Route path="/marketplace" element={<MarketPlace data={data} />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      {/*This renders the login UI on the /auth route*/}
+      {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
+      {/*Your app routes*/}
+    </Routes>
   )
 }
-
-export default App
