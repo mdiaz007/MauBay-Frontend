@@ -20,14 +20,41 @@ SuperTokens.init({
     apiBasePath: "/auth",
     websiteBasePath: "/auth",
   },
-  style: `
-    [data-supertokens~=authPage]{
-      position: absolute;
-      top: 49%;
-      left: 50%;
-      transform: translate3d(-50%,-50%, 0);
-    }`,
-  recipeList: [EmailPassword.init(), Session.init()]
+  getRedirectionURL: async (context) => {
+    if (context.action === "TO_AUTH") {
+      return "/auth"; // return the path where you are rendering the Auth UI
+    } else if (context.action === "SUCCESS" && context.newSessionCreated) {
+      return "/dashboard"; // defaults to "/"
+    };
+  },
+  disableAuthRoute: true,
+  recipeList: [EmailPassword.init({
+    signInAndUpFeature: {
+      signUpForm: {
+        formFields: [{
+          id: "firstname",
+          label: "First Name: ",
+          placeholder: "First name",
+        },
+        {
+          id: "lastname",
+          label: "Last Name: ",
+          placeholder: "Last name"
+        },
+        {
+          id: "accountID",
+          label: "Account ID: ",
+          placeholder: "Account ID (Not changeable)"
+        },
+        {
+          id: "username",
+          label: "Username: ",
+          placeholder: "Public username (Changeable)",
+        }
+      ]
+      }
+    }
+  }), Session.init()]
 });
 
 createRoot(document.getElementById('root')).render(

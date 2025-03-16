@@ -12,6 +12,7 @@ import Home from './pages/Home'
 import MarketPlace from './pages/MarketPlace'
 import Cart from './pages/Cart'
 import Dashboard from './pages/Dashboard'
+import Auth from './pages/Auth'
 
 export default function App() {
 
@@ -37,6 +38,7 @@ export default function App() {
       <Route path="/marketplace" element={<MarketPlace data={data} />} />
       <Route path="/cart" element={<Cart />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/auth" element={<Auth />} />
       {/*This renders the login UI on the /auth route*/}
       {getSuperTokensRoutesForReactRouterDom(reactRouterDom, [EmailPasswordPreBuiltUI])}
       {/*Your app routes*/}
