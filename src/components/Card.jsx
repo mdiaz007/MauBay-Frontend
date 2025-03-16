@@ -72,10 +72,10 @@ function Card(props) {
         return (
             <>
                 <div className="card">
-                    <span className="cardtitle">Settings</span>
-                    <button className="cartbutton" onClick={() => setDashboard("account")}>Account</button>
-                    <button className="cartbutton" onClick={() => setDashboard("security")}>Security</button>
-                    <button className="cartbutton" onClick={() => setDashboard("orders")}>Orders</button>
+                    <span className="cardtitleSettings">Settings</span>
+                    <button className="settingsbutton" onClick={() => setDashboard("account")}>Account</button>
+                    <button className="settingsbutton" onClick={() => setDashboard("security")}>Security</button>
+                    <button className="settingsbutton" onClick={() => setDashboard("orders")}>Orders</button>
                     <span className="cardtitle"></span>
                 </div>
             </>
