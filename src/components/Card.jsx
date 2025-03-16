@@ -8,6 +8,8 @@ function Card(props) {
     const component_item = props.item
     const component_image = props.imageURL
 
+    const setDashboard = props.setDashboard
+
     /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
 
     if (component_name == "Filters"){
@@ -70,12 +72,10 @@ function Card(props) {
         return (
             <>
                 <div className="card">
-                    <span className="cardtitle">{component_name}</span>
-                    <span className="cartbutton">Account</span>
-                    <span className="cartbutton">Security</span>
-                    <span className="cartbutton">Messages</span>
-                    <span className="cartbutton">Orders</span>
-                    <span className="cartbutton">Analytics</span>
+                    <span className="cardtitle">Settings</span>
+                    <button className="cartbutton" onClick={() => setDashboard("account")}>Account</button>
+                    <button className="cartbutton" onClick={() => setDashboard("security")}>Security</button>
+                    <button className="cartbutton" onClick={() => setDashboard("orders")}>Orders</button>
                     <span className="cardtitle"></span>
                 </div>
             </>
