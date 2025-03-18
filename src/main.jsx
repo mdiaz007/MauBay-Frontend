@@ -42,11 +42,6 @@ SuperTokens.init({
           placeholder: "Last name"
         },
         {
-          id: "accountID",
-          label: "Account ID: ",
-          placeholder: "Account ID (Not changeable)"
-        },
-        {
           id: "username",
           label: "Username: ",
           placeholder: "Public username (Changeable)",
