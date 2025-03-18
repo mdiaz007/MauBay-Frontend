@@ -47,8 +47,8 @@ function DashboardWindow(props) {
                         <input type="text" name="lastname" id="=lastname"></input>
                     </form>
                     <form>
-                        <label for="dob">Date of birth: </label>
-                        <input type="text" name="dob" id="dob"></input>
+                        <label for="user_id">User ID: </label>
+                        <input type="text" name="user_id" id="user_id"></input>
                     </form>
 
                     <button>Apply</button>
