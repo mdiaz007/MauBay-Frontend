@@ -76,6 +76,7 @@ function Card(props) {
                     <button className="settingsbutton" onClick={() => setDashboard("account")}>Account</button>
                     <button className="settingsbutton" onClick={() => setDashboard("security")}>Security</button>
                     <button className="settingsbutton" onClick={() => setDashboard("orders")}>Orders</button>
+                    <button className="settingsbutton" onClick={() => setDashboard("createlisting")}>Create Listing</button>
                     <span className="cardtitle"></span>
                 </div>
             </>
