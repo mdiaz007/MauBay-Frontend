@@ -9,7 +9,40 @@ function DashboardWindow(props) {
     const component_userID = props.userID
 
     /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
-    if (component_name == "createlisting") {
+    
+    if (component_name == "soldlisting") {
+        return (
+            <>
+                <div className="dashboard_window">
+                    <h1 className="dashboardTitle">Sold</h1>
+                </div>
+            </>
+        )
+    } else if (component_name == "activelisting") {
+        return (
+            <>
+                <div className="dashboard_window">
+                    <h1 className="dashboardTitle">Active Listing</h1>
+                </div>
+            </>
+        )
+    } else if (component_name == "draftedlisting") {
+        return (
+            <>
+                <div className="dashboard_window">
+                    <h1 className="dashboardTitle">Drafts</h1>
+                </div>
+            </>
+        )
+    } else if (component_name == "deletelisting"){
+        return (
+            <>
+                <div className="dashboard_window">
+                    <h1 className="dashboardTitle">Active Listing</h1>
+                </div>
+            </>
+        )
+    } else if (component_name == "createlisting") {
 
         const [ListingName, setListingName] = useState([])
         const [Price, setPrice] = useState([])
