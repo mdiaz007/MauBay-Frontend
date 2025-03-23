@@ -18,16 +18,20 @@ function Dashboard() {
         setValue(value)
     }
 
+    const [userID, setUserID] = useState()
+
+
     // Need this for getting current user ID, works!
     async function getJWT() {
         if (await Session.doesSessionExist()) {
             let userId = await Session.getUserId();
             let jwt = await Session.getAccessToken();
+            setUserID(userId)
             return userId
         }
     }
 
-    // console.log(getJWT())
+    getJWT()
 
     return (
         <SessionAuth>
@@ -35,7 +39,7 @@ function Dashboard() {
                 <h1 className="dashboard_title">Dashboard</h1>
                 <div className="dashboard_center">
                     <Card name="DashboardCard" setDashboard={setDashboard}/>
-                    <DashboardWindow name={value}/>
+                    <DashboardWindow name={value} userID={userID}/>
                 </div>
             </div>
         </SessionAuth>

@@ -1,48 +1,111 @@
 import React, { useState } from 'react';
 
+import axios from 'axios'
+axios.defaults.baseURL = import.meta.env.VITE_AXIOSBASEURL;
+
 function DashboardWindow(props) {
 
     const component_name = props.name
+    const component_userID = props.userID
 
     /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
     if (component_name == "createlisting") {
 
         const [ListingName, setListingName] = useState([])
-        const [price, setPrice] = useState([])
-        // const [Image, setImage] = useState([])
+        const [Price, setPrice] = useState([])
+        const [Image, setItemImage] = useState([])
         const [Description, setDescription] = useState([])
         const [Category, setCategory] = useState([])
         const [Condition, setCondition] = useState([])
+        // const [Sponsored, setSponsored] = useState([])
+
+        const handleSubmit = (e) => {
+            e.preventDefault(); // Prevents page from being refreshed after submission.
+            const listing = {ListingName, Price, Image, Description, Category, Condition}
+
+            axios.post('/listing/add',{
+                userID: component_userID,
+                title: ListingName,
+                price: Price,
+                image: Image,
+                description: Description,
+                category: Category,
+                condition: Condition
+            })
+            .then(function (response){
+                console.log(response)
+            })
+            .catch(function(error){
+                console.log(error)
+            });
+
+            console.log(listing)
+        }
 
         return (
             <>
                 <div className="dashboard_window">
                     <h1 className="dashboardTitle">Create Listing</h1>
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <label for="name">Listing name: </label>
-                        <input type="text" name="name" id="name"></input>
+                        <input
+                        type="text"
+                        required
+                        value={ListingName}
+                        onChange={(e) => setListingName(e.target.value)}
+                        />
+                        <br></br>                        
+                        <label for="name">Price: </label>
+                        <input
+                            type="text"
+                            required
+                            value={Price}
+                            onChange={(e) => setPrice(e.target.value)}
+                        />
+                        <br></br>
+                        <label for="name">Image: </label>
+                        <input
+                            type="text"
+                            required
+                            value={Image}
+                            onChange={(e) => setItemImage(e.target.value)}
+                        />
+                        <br></br>
+                        <label for="name">Description: </label>
+                        <input
+                            type="text"
+                            required
+                            value={Description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
+                        <br></br>
+                        <label for="name">Category: </label>
+                        <input
+                            type="text"
+                            required
+                            value={Category}
+                            onChange={(e) => setCategory(e.target.value)}
+                        />
+                        <br></br>
+                        <label for="name">Condition: </label>
+                        <input
+                            type="text"
+                            required
+                            value={Condition}
+                            onChange={(e) => setCondition(e.target.value)}
+                        />
+                        <br></br>
+                        {/* <label for="name">Sponsored: </label>
+                        <input
+                            type="text"
+                            required
+                            value={Sponsored}
+                            onChange={(e) => setSponsored(e.target.value)}
+                        />
+                        <br></br> */}
+                        <button>Submit</button>
                     </form>
-                    <form>
-                        <label for="price">Price: </label>
-                        <input type="text" name="price" id="price"></input>
-                    </form>
-                    {/* <form>
-                        <label for="image">Image: </label>
-                        <input type="file" name="image" id="image" accept="image/png, image/jpeg"></input>
-                    </form> */}
-                    <form>
-                        <label for="description">Description: </label>
-                        <input type="text" name="description" id="description"></input>
-                    </form>
-                    <form>
-                        <label for="category">Category(dropdown): </label>
-                        <input type="text" name="category" id="category"></input>
-                    </form>
-                    <form>
-                        <label for="condition">Condition(dropdown): </label>
-                        <input type="text" name="condition" id="condition"></input>
-                    </form>
-                    <button>Apply</button>
+                    
                 </div>
             </>
         )
