@@ -8,10 +8,8 @@ import DashboardWindow from '../components/DashboardWindow'
 
 import Session from 'supertokens-auth-react/recipe/session';
 
-
-
-function Dashboard() {
-
+function Dashboard(props) {
+    
     const [value, setValue] = useState("Default Here")
 
     function setDashboard(value){

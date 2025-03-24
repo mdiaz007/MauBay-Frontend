@@ -20,7 +20,7 @@ export default function App() {
 
   // [] Will only render once
   useEffect(() => {
-    axios.get('active')
+    axios.get('active/')
       .then(function (response){
         setData(response.data)
       })

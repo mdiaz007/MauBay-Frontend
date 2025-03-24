@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import axios from 'axios'
 axios.defaults.baseURL = import.meta.env.VITE_AXIOSBASEURL;
@@ -7,9 +7,8 @@ function DashboardWindow(props) {
 
     const component_name = props.name
     const component_userID = props.userID
-
-    /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
     
+    /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
     if (component_name == "soldlisting") {
         return (
             <>
@@ -27,10 +26,43 @@ function DashboardWindow(props) {
             </>
         )
     } else if (component_name == "draftedlisting") {
+
+        const [draft, setDraft] = useState([])
+
+        useEffect(() => {
+            axios.get('draft/', {
+                params: {
+                    id: `${props.userID}`
+                }
+            })
+                .then(function (response) {
+                    setDraft(response.data)
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+                .finally(function () {
+
+                })
+        }, [])
         return (
             <>
                 <div className="dashboard_window">
                     <h1 className="dashboardTitle">Drafts</h1>
+
+                    {console.log(draft)}
+
+                    {Object.keys(draft).map(key => {
+                        return <>
+                        
+                            <p>{draft[key]['id']}, {draft[key]['title']}, {draft[key]['price']}, {draft[key]['description']}, {draft[key]['condition']}, {draft[key]['category']}</p>
+                        
+                        </>
+                    
+                    })}
+
+
+
                 </div>
             </>
         )
@@ -53,25 +85,48 @@ function DashboardWindow(props) {
 
         const handleSubmit = (e) => {
             e.preventDefault(); // Prevents page from being refreshed after submission.
+            
+            const buttonName = e.nativeEvent['submitter']['name']
+
+            console.log(buttonName)
+
             const listing = {ListingName, Price, Image, Description, Category, Condition}
 
-            axios.postForm('/listing/add',{
-                userID: component_userID,
-                title: ListingName,
-                price: Price,
-                image: Image,
-                description: Description,
-                category: Category,
-                condition: Condition
-            })
-            .then(function (response){
-                console.log(response)
-            })
-            .catch(function(error){
-                console.log(error)
-            });
+            if (buttonName == "createListing"){
+                axios.postForm('/listing/add', {
+                    userID: component_userID,
+                    title: ListingName,
+                    price: Price,
+                    image: Image,
+                    description: Description,
+                    category: Category,
+                    condition: Condition
+                })
+                    .then(function (response) {
+                        console.log(response)
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    });
+            }else{
+                axios.postForm('/listing/draft', {
+                    userID: component_userID,
+                    title: ListingName,
+                    price: Price,
+                    image: Image,
+                    description: Description,
+                    category: Category,
+                    condition: Condition
+                })
+                    .then(function (response) {
+                        console.log(response)
+                    })
+                    .catch(function (error) {
+                        console.log(error)
+                    });
+            }
 
-            console.log(listing)
+            
         }
 
         return (
@@ -135,7 +190,8 @@ function DashboardWindow(props) {
                             onChange={(e) => setSponsored(e.target.value)}
                         />
                         <br></br> */}
-                        <button>Submit</button>
+                        <button type="submit" name="createListing">Create Listing</button>
+                        <button type="submit" name="createDraft">Create Draft</button>
                     </form>
                     
                 </div>
