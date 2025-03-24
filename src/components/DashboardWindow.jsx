@@ -46,17 +46,16 @@ function DashboardWindow(props) {
 
         const [ListingName, setListingName] = useState([])
         const [Price, setPrice] = useState([])
-        const [Image, setItemImage] = useState([])
+        const [Image, setItemImage] = useState('')
         const [Description, setDescription] = useState([])
         const [Category, setCategory] = useState([])
         const [Condition, setCondition] = useState([])
-        // const [Sponsored, setSponsored] = useState([])
 
         const handleSubmit = (e) => {
             e.preventDefault(); // Prevents page from being refreshed after submission.
             const listing = {ListingName, Price, Image, Description, Category, Condition}
 
-            axios.post('/listing/add',{
+            axios.postForm('/listing/add',{
                 userID: component_userID,
                 title: ListingName,
                 price: Price,
@@ -98,10 +97,10 @@ function DashboardWindow(props) {
                         <br></br>
                         <label for="name">Image: </label>
                         <input
-                            type="text"
+                            type="file"
                             required
-                            value={Image}
-                            onChange={(e) => setItemImage(e.target.value)}
+                            // value={Image}
+                            onChange={(e) => setItemImage(e.target.files[0])}
                         />
                         <br></br>
                         <label for="name">Description: </label>

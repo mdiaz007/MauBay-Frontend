@@ -61,7 +61,7 @@ function Card(props) {
                 <div className="shoppingcard">
                     <span className="cardtitle">{component_item}</span>
                     <div className="shoppingcardimage">
-                        <img className="shoppingcardimg" src={"src/assets/" + component_image} alt={component_item}></img>
+                        <img className="shoppingcardimg" src={"http://localhost:8000" + component_image} alt={component_item}></img>
                     </div>
                     <span className="cartbutton2">Add to cart</span>
                     <span className="cardtitle">{component_price}</span>
