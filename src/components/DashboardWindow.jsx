@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 axios.defaults.baseURL = import.meta.env.VITE_AXIOSBASEURL;
 
+import DashboardDrafts from './DashboardDrafts';
+import DashboardSold from './DashboardSold';
+import DashboardActive from './DashboardActive';
+
 function DashboardWindow(props) {
 
     const component_name = props.name
@@ -14,6 +18,7 @@ function DashboardWindow(props) {
             <>
                 <div className="dashboard_window">
                     <h1 className="dashboardTitle">Sold</h1>
+                    <DashboardSold userID={component_userID}></DashboardSold>
                 </div>
             </>
         )
@@ -22,55 +27,16 @@ function DashboardWindow(props) {
             <>
                 <div className="dashboard_window">
                     <h1 className="dashboardTitle">Active Listing</h1>
+                    <DashboardActive userID={component_userID}></DashboardActive>
                 </div>
             </>
         )
     } else if (component_name == "draftedlisting") {
-
-        const [draft, setDraft] = useState([])
-
-        useEffect(() => {
-            axios.get('draft/', {
-                params: {
-                    id: `${props.userID}`
-                }
-            })
-                .then(function (response) {
-                    setDraft(response.data)
-                })
-                .catch(function (error) {
-                    console.log(error)
-                })
-                .finally(function () {
-
-                })
-        }, [])
         return (
             <>
                 <div className="dashboard_window">
                     <h1 className="dashboardTitle">Drafts</h1>
-
-                    {console.log(draft)}
-
-                    {Object.keys(draft).map(key => {
-                        return <>
-                        
-                            <p>{draft[key]['id']}, {draft[key]['title']}, {draft[key]['price']}, {draft[key]['description']}, {draft[key]['condition']}, {draft[key]['category']}</p>
-                        
-                        </>
-                    
-                    })}
-
-
-
-                </div>
-            </>
-        )
-    } else if (component_name == "deletelisting"){
-        return (
-            <>
-                <div className="dashboard_window">
-                    <h1 className="dashboardTitle">Active Listing</h1>
+                    <DashboardDrafts userID={component_userID}></DashboardDrafts>
                 </div>
             </>
         )

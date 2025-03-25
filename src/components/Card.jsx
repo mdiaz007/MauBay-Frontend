@@ -77,7 +77,7 @@ function Card(props) {
                     <button className="settingsbutton" onClick={() => setDashboard("security")}>Security</button>
                     <button className="settingsbutton" onClick={() => setDashboard("orders")}>Orders</button>
                     <button className="settingsbutton" onClick={() => setDashboard("createlisting")}>Create Listing</button>
-                    <button className="settingsbutton" onClick={() => setDashboard("deletelisting")}>Active Listing</button>
+                    <button className="settingsbutton" onClick={() => setDashboard("activelisting")}>Active Listing</button>
                     <button className="settingsbutton" onClick={() => setDashboard("draftedlisting")}>Drafts</button>
                     <button className="settingsbutton" onClick={() => setDashboard("soldlisting")}>Sold</button>
                     <span className="cardtitle"></span>
