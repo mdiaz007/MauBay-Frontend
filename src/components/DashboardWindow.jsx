@@ -189,6 +189,12 @@ function DashboardWindow(props) {
             </>
         )
     } else{
+
+        const [accountCreatePending, setAccountCreatePending] = useState(false);
+        const [accountLinkCreatePending, setAccountLinkCreatePending] = useState(false);
+        const [error, setError] = useState(false);
+        const [connectedAccountId, setConnectedAccountId] = useState();
+
         return (
             <>
                 <div className="dashboard_window">
@@ -211,6 +217,35 @@ function DashboardWindow(props) {
                     </form>
 
                     <button>Apply</button>
+
+                    <button
+                        onClick={async () => {
+                            setAccountCreatePending(true);
+                            setError(false);
+                            axios.postForm('http://127.0.0.1:8000/stripe/account/', {
+                                method: "POST",
+                            })
+                                // .then((response) => response.json())
+                                // .then((json) => {
+                                //     setAccountCreatePending(false);
+
+                                //     const { account, error } = json;
+
+                                //     if (account) {
+                                //         setConnectedAccountId(account);
+                                //     }
+
+                                //     if (error) {
+                                //         setError(true);
+                                //     }
+                                // });
+                                .then(function (response) {
+                                    console.log(response)
+                                })
+                        }}
+                    >
+                        Create an Account! Stripe
+                    </button>
                     
                 </div>
             </>
