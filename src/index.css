@@ -146,6 +146,17 @@ body{
     margin: 15px;
 }
 
+.ShoppingCardButton{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    color: none;
+}
+
+.ShoppingCardButton:hover{
+    opacity:75%
+}
+
 .shoppingcardimage{
     display: flex;
     background-color: white;
@@ -219,6 +230,12 @@ body{
     color: white;
     max-height: 35px;
     min-height: 35px;
+    border: none;
+    cursor: pointer;
+}
+
+.cartbutton2:hover{
+    opacity: 80%;
 }
 
 .searchbar{

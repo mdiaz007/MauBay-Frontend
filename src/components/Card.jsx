@@ -1,6 +1,8 @@
 import Filters from "./Filters"
 import CartComponent from "./CartComponent"
 
+import { useSessionContext } from "supertokens-auth-react/recipe/session"
+
 function Card(props) {
 
     const component_name = props.name
@@ -9,6 +11,14 @@ function Card(props) {
     const component_image = props.imageURL
 
     const setDashboard = props.setDashboard
+
+    function listingPage(){
+        console.log("go to listing page")
+    }
+
+    function addCart() {
+        console.log("add to cart")
+    }
 
     /* Depending on what argument is given, displays different card component, for example filterscard shows a card with filters */
 
@@ -56,18 +66,44 @@ function Card(props) {
             </>
         )
     } else if (component_name == "ShoppingCard") {
-        return (
-            <>
-                <div className="shoppingcard">
-                    <span className="cardtitle">{component_item}</span>
-                    <div className="shoppingcardimage">
-                        <img className="shoppingcardimg" src={"http://localhost:8000" + component_image} alt={component_item}></img>
+
+        const check = "True"
+        const session = useSessionContext();
+
+        if (session.doesSessionExist === true){
+            return (
+                <>
+                    <div className="shoppingcard">
+                        <span className="cardtitle">{component_item}</span>
+                        <button onClick={listingPage} className="ShoppingCardButton">
+                            <div className="shoppingcardimage">
+                                <img className="shoppingcardimg" src={"http://localhost:8000" + component_image} alt={component_item}></img>
+                            </div>
+                        </button>
+                        <button onClick={addCart}
+                            className="cartbutton2">Add to Cart</button>
+                        <span className="cardtitle">{component_price}</span>
                     </div>
-                    <span className="cartbutton2">Add to cart</span>
-                    <span className="cardtitle">{component_price}</span>
-                </div>
-            </>
-        )
+                </>
+            )
+        }
+        else {
+            return (
+                <>
+                    <div className="shoppingcard">
+                        <span className="cardtitle">{component_item}</span>
+                        <button onClick={listingPage} className="ShoppingCardButton">
+                            <div className="shoppingcardimage">
+                                <img className="shoppingcardimg" src={"http://localhost:8000" + component_image} alt={component_item}></img>
+                            </div>
+                        </button>
+                        <button onClick={addCart}
+                        className="cartbutton2">Login To Add to Cart</button>
+                        <span className="cardtitle">{component_price}</span>
+                    </div>
+                </>
+            )
+        }
     } else if (component_name == "DashboardCard") {
         return (
             <>
