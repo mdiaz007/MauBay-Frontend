@@ -16,6 +16,7 @@ function MarketPlace(props) {
                             item={props.data[key]['title']}
                             price={props.data[key]['price']}
                             imageURL={props.data[key]['image_url']}
+                            id={props.data[key]['id']}
                         />
                     })}
                 </div>
