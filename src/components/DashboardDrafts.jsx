@@ -30,8 +30,10 @@ function DashboardDrafts(props) {
                 {Object.keys(draft).map(key => {
                         return <>
                         
-                            <p>{draft[key]['id']}, {draft[key]['title']}, {draft[key]['price']}, {draft[key]['description']}, {draft[key]['condition']}, {draft[key]['category']}</p>
-                        
+                            <div className="DashboardListingCard">
+                                <img className="DashboardListingImage" src={"http://localhost:8000" + draft[key]['image_url']} alt="" />
+                                <p>{draft[key]['id']}, {draft[key]['title']}, {draft[key]['price']}, {draft[key]['description']}, {draft[key]['condition']}, {draft[key]['category']}</p>
+                            </div>
                         </>
                     
                     })}

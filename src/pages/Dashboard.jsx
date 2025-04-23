@@ -38,6 +38,7 @@ function Dashboard(props) {
                 <div className="dashboard_center">
                     <Card name="DashboardCard" setDashboard={setDashboard}/>
                     <DashboardWindow name={value} userID={userID}/>
+                    <Card name="hey"/>
                 </div>
             </div>
         </SessionAuth>

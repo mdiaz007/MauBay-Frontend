@@ -16,6 +16,7 @@ function DashboardActive(props) {
         })
             .then(function (response) {
                 setactive(response.data)
+                console.log(response.data)
             })
             .catch(function (error) {
                 console.log(error)
@@ -29,8 +30,11 @@ function DashboardActive(props) {
         <>
                 {Object.keys(active).map(key => {
                         return <>
-                        
-                            <p>{active[key]['id']}, {active[key]['title']}, {active[key]['price']}, {active[key]['description']}, {active[key]['condition']}, {active[key]['category']}</p>
+
+                            <div className="DashboardListingCard">
+                                <img className="DashboardListingImage" src={"http://localhost:8000" + active[key]['image_url']} alt="" />
+                                <div >{active[key]['id']}, {active[key]['title']}, {active[key]['price']}, {active[key]['description']}, {active[key]['condition']}, {active[key]['category']}</div>
+                            </div>
                         
                         </>
                     

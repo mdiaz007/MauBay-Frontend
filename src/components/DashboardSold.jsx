@@ -32,7 +32,11 @@ function DashboardSold(props) {
                 {Object.keys(sold).map(key => {
                         return <>
                         
-                            <p>{sold[key]['id']}, {sold[key]['title']}, {sold[key]['price']}, {sold[key]['description']}, {sold[key]['condition']}, {sold[key]['category']}</p>
+
+                            <div className="DashboardListingCard">
+                                <img className="DashboardListingImage" src={"http://localhost:8000" + sold[key]['image_url']} alt="" />
+                                <p>{sold[key]['id']}, {sold[key]['title']}, {sold[key]['price']}, {sold[key]['description']}, {sold[key]['condition']}, {sold[key]['category']}</p>
+                            </div>
                         
                         </>
                     

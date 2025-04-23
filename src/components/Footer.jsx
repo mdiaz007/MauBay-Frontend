@@ -6,16 +6,10 @@ function Footer() {
       <div className="footer">
         <div className="footerdiv">
           <div>
-            <h3>About</h3>
+            <a href="/about" className="FooterLinks">About</a>
           </div>
           <div>
-            <h3>Help & Faqs</h3>
-          </div>
-          <div>
-            <h3>Social Links</h3>
-          </div>
-          <div>
-            <h3>Contact</h3>
+            <a href="/contact" className="FooterLinks">Contact</a>
           </div>
         </div>          
       </div>

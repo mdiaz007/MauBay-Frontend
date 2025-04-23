@@ -14,14 +14,13 @@ function Home(props) {
                 <h1 className="homepage_sponsored">Sponsored Items</h1>
 
                 <div className="homepagemiddle">
-                    {/* <Card name="ShoppingCard" item="Pagani Zonda" price="6,500,000" imageURL="ZONDA.jpg" /> */}
-
                     {Object.keys(props.data).map(key => {
                         return <Card 
                             name="ShoppingCard"
                             item={props.data[key]['title']}
                             price={props.data[key]['price']}
                             imageURL={props.data[key]['image_url']}
+                            id={props.data[key]['id']}
                         />
                     })}
 

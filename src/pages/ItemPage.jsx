@@ -13,28 +13,28 @@ function ItemPage() {
     const location = useLocation();
     const id = location.search.replace("?id=", "")
 
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
 
-    // [] Will only render once
-    useEffect(() => {
-        axios.get('listing/get', {
-            params: {
-                id: `${id}`
-            }
-        })
-            .then(function (response) {
-                setData(response.data)
-            })
-            .catch(function (error) {
-                console.log(error)
-            })
-            .finally(function () {
+    // // [] Will only render once
+    // useEffect(() => {
+    //     axios.get('listing/get', {
+    //         params: {
+    //             id: `${id}`
+    //         }
+    //     })
+    //         .then(function (response) {
+    //             setData(response.data)
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error)
+    //         })
+    //         .finally(function () {
 
-            })
-    }, [])
+    //         })
+    // }, [])
 
     return (
-        <ItemPageComponent data={data}/>
+        <ItemPageComponent id={id}/>
     )
 }
 

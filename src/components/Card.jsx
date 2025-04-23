@@ -32,7 +32,7 @@ function Card(props) {
                     <span className="cardtitle">{component_name}</span>
                     <Filters />
                     <span className="filterbutton">Apply</span>
-                    <span className="cardtitle">Filters Applied: ?</span>
+                    <span className="cardtitle">None Selected</span>
 
                 </div>
             </>
@@ -113,9 +113,6 @@ function Card(props) {
             <>
                 <div className="card">
                     <span className="cardtitleSettings">Settings</span>
-                    <button className="settingsbutton" onClick={() => setDashboard("account")}>Account</button>
-                    <button className="settingsbutton" onClick={() => setDashboard("security")}>Security</button>
-                    <button className="settingsbutton" onClick={() => setDashboard("orders")}>Orders</button>
                     <button className="settingsbutton" onClick={() => setDashboard("createlisting")}>Create Listing</button>
                     <button className="settingsbutton" onClick={() => setDashboard("activelisting")}>Active Listing</button>
                     <button className="settingsbutton" onClick={() => setDashboard("draftedlisting")}>Drafts</button>
@@ -127,10 +124,7 @@ function Card(props) {
     } else{
         return (
             <>
-                <div className="card">
-                    <span className="cardtitle">{component_name}</span>
-                    <span className="cartbutton">Placeholder</span>
-                    <span className="cardtitle">End Card</span>
+                <div className="cardBlank">
                 </div>
             </>
         )
